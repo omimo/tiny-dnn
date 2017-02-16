@@ -44,6 +44,18 @@
 #include <cereal/details/helpers.hpp>
 #include <cereal/types/base_class.hpp>
 
+
+//Omid Fix
+#include <sstream>
+template <typename T>
+std::string to_string(T value)
+{
+    std::ostringstream os ;
+    os << value ;
+    return os.str() ;
+}
+// /Omid Fix
+
 namespace cereal
 {
   // ######################################################################
@@ -647,7 +659,7 @@ namespace cereal
 
         auto iter = itsSharedPointerMap.find( id );
         if(iter == itsSharedPointerMap.end())
-          throw Exception("Error while trying to deserialize a smart pointer. Could not find id " + std::to_string(id));
+          throw Exception("Error while trying to deserialize a smart pointer. Could not find id " + to_string(id));
 
         return iter->second;
       }
@@ -675,7 +687,7 @@ namespace cereal
         auto name = itsPolymorphicTypeMap.find( id );
         if(name == itsPolymorphicTypeMap.end())
         {
-          throw Exception("Error while trying to deserialize a polymorphic pointer. Could not find type id " + std::to_string(id));
+          throw Exception("Error while trying to deserialize a polymorphic pointer. Could not find type id " + to_string(id));
         }
         return name->second;
       }

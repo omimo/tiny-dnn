@@ -20,7 +20,7 @@ inline void conv2d_op_nnpack(const tensor_t &in_data,
                              const core::conv_params &params) {
 #ifdef CNN_USE_NNPACK
   // call singleton to initialize NNPACK
-  core::NNPackInitializer::getInstance().initialize();
+  core::NNPackInitializer::getInstance().initialize();  
 
   const auto algorithm                 = core::nnp_algorithm();
   const auto kernel_transform_strategy = core::nnp_kts();

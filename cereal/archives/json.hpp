@@ -327,7 +327,7 @@ namespace cereal
 
         if(itsNextName == nullptr)
         {
-          std::string name = "value" + std::to_string( itsNameCounter.top()++ ) + "\0";
+          std::string name = "value" + to_string( itsNameCounter.top()++ ) + "\0";
           saveValue(name);
         }
         else

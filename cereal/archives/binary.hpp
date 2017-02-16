@@ -32,6 +32,7 @@
 #include <cereal/cereal.hpp>
 #include <sstream>
 
+
 namespace cereal
 {
   // ######################################################################
@@ -65,7 +66,7 @@ namespace cereal
         auto const writtenSize = static_cast<std::size_t>( itsStream.rdbuf()->sputn( reinterpret_cast<const char*>( data ), size ) );
 
         if(writtenSize != size)
-          throw Exception("Failed to write " + std::to_string(size) + " bytes to output stream! Wrote " + std::to_string(writtenSize));
+          throw Exception("Failed to write " + to_string(size) + " bytes to output stream! Wrote " + to_string(writtenSize));
       }
 
     private:
@@ -98,7 +99,7 @@ namespace cereal
         auto const readSize = static_cast<std::size_t>( itsStream.rdbuf()->sgetn( reinterpret_cast<char*>( data ), size ) );
 
         if(readSize != size)
-          throw Exception("Failed to read " + std::to_string(size) + " bytes from input stream! Read " + std::to_string(readSize));
+          throw Exception("Failed to read " + to_string(size) + " bytes from input stream! Read " + to_string(readSize));
       }
 
     private:

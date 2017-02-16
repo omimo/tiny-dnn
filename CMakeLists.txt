@@ -10,6 +10,12 @@ cmake_minimum_required(VERSION 3.2 FATAL_ERROR)
 #   * PROJECT_VERSION
 project(tiny_dnn VERSION 1.0.0 LANGUAGES C CXX)
 
+
+##### OMID
+set(NNPACK_INCLUDE_DIR ../NNPACK/include/)
+set(NNPACK_LIB ../NNPACK/lib/libnnpack.a)
+##### /OMID
+
 #####
 # Enables link_directories() treat paths relative
 # to the source dir.
@@ -151,6 +157,7 @@ elseif(USE_NNPACK AND NOT NNPACK_FOUND)
     # In case the user sets the flag USE_NNPACK to ON, the CMake build-tree
     # will require to find NNPACK in your system. Otherwise, the user can
     # set the paths to headers and libs by hand.
+    message(${NNPACK_INCLUDE_DIR})
     message(FATAL_ERROR "Can't find NNPACK. Please set NNPACK_INCLUDE_DIR "
             " & NNPACK_LIB")
 endif()

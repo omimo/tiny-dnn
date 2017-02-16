@@ -39,6 +39,10 @@ inline std::ostream &operator<<(std::ostream &os, backend_t type) {
 }
 
 inline backend_t default_engine() {
+#ifdef CNN_USE_NNPACK
+  return backend_t::nnpack;
+#endif
+
 #ifdef CNN_USE_AVX
 #if defined(__AVX__) || defined(__AVX2__)
   return backend_t::avx;

@@ -10,6 +10,7 @@
 #include <cstddef>
 #include <cstdint>
 
+// #define CNN_USE_NNPACK
 /**
  * define if you want to use intel TBB library
  */
