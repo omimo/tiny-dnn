@@ -7,6 +7,8 @@
 */
 #pragma once
 
+#include <memory> //omid
+
 #include <cassert>
 #include <cstdarg>
 #include <cstdio>
